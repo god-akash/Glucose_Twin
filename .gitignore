@@ -1,0 +1,39 @@
+# VS Code
+.vscode/
+
+# Python environment and cache
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Raw and processed datasets
+data/raw/
+data/processed/
+
+# Cross-validation models (keep local, don't upload)
+models/fold*/
+
+# Keep final deployment models and metadata tracked
+!models/final/
+!models/meta.json
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# AL / Business Central template
+.alcache/
+.alpackages/
+.snapshots/
+.output/
+*.app
+rad.json
+*.g.xlf
+*.bclicense
+*.flf
+TestResults.xml

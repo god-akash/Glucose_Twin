@@ -1,0 +1,2644 @@
+{
+  "features": [
+    "glucose",
+    "glucose_lag_15",
+    "glucose_lag_30",
+    "glucose_lag_45",
+    "glucose_lag_60",
+    "glucose_lag_90",
+    "glucose_lag_120",
+    "glucose_lag_180",
+    "glucose_lag_240",
+    "glucose_change_15",
+    "glucose_change_30",
+    "glucose_change_60",
+    "glucose_mean_2h",
+    "glucose_std_2h",
+    "glucose_max_2h",
+    "glucose_min_2h",
+    "glucose_mean_6h",
+    "glucose_std_6h",
+    "glucose_max_6h",
+    "glucose_min_6h",
+    "min_since_high140",
+    "min_since_high180",
+    "min_since_low70",
+    "hr_mean_15",
+    "hr_mean_60",
+    "act_level_mean_15",
+    "act_level_mean_60",
+    "act_active_frac_60",
+    "hr_std_60",
+    "activity_calories_60",
+    "hr_observed_15",
+    "minutes_since_meal",
+    "last_meal_type",
+    "last_calories_full",
+    "last_carbs_full",
+    "last_protein_full",
+    "last_fat_full",
+    "last_fiber_full",
+    "carbs_full_1h",
+    "carbs_full_2h",
+    "carbs_full_4h",
+    "hour_sin",
+    "hour_cos"
+  ],
+  "categorical_features": [
+    "last_meal_type"
+  ],
+  "meal_types": [
+    "none",
+    "breakfast",
+    "lunch",
+    "dinner",
+    "snack"
+  ],
+  "horizons": [
+    30,
+    60,
+    90,
+    120,
+    180,
+    240,
+    300,
+    360
+  ],
+  "events": {
+    "high180": {
+      "threshold": 180,
+      "direction": "above"
+    },
+    "high140": {
+      "threshold": 140,
+      "direction": "above"
+    },
+    "low70": {
+      "threshold": 70,
+      "direction": "below"
+    }
+  },
+  "thresholds": {
+    "high180": {
+      "sensitive": 0.3,
+      "balanced": 0.5
+    },
+    "high140": {
+      "sensitive": 0.4,
+      "balanced": 0.5
+    },
+    "low70": {
+      "sensitive": 0.3,
+      "balanced": 0.5
+    }
+  },
+  "folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "fold_of_subject": {
+    "1": 4,
+    "2": 2,
+    "3": 0,
+    "4": 1,
+    "5": 1,
+    "6": 0,
+    "8": 3,
+    "9": 0,
+    "10": 2,
+    "11": 1,
+    "12": 1,
+    "13": 1,
+    "14": 0,
+    "15": 0,
+    "16": 4,
+    "17": 3,
+    "18": 3,
+    "19": 3,
+    "20": 4,
+    "21": 2,
+    "22": 1,
+    "23": 2,
+    "26": 0,
+    "27": 1,
+    "28": 4,
+    "29": 0,
+    "30": 1,
+    "31": 4,
+    "32": 1,
+    "33": 4,
+    "34": 0,
+    "35": 3,
+    "36": 3,
+    "38": 4,
+    "39": 2,
+    "41": 3,
+    "42": 2,
+    "43": 3,
+    "44": 2,
+    "45": 4,
+    "46": 0,
+    "47": 2,
+    "48": 2,
+    "49": 3
+  },
+  "feature_strategy": "dynamic_no_ehr_no_consumed_amounts",
+  "model_parameters": {
+    "n_estimators": 250,
+    "learning_rate": 0.05,
+    "max_depth": 4,
+    "min_child_weight": 20,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 5.0,
+    "tree_method": "hist",
+    "enable_categorical": true,
+    "eval_metric": "logloss",
+    "random_state": 0
+  },
+  "models": {
+    "high180": {
+      "30": {
+        "final": {
+          "file": "models/final/high180_30.json",
+          "rows": 42139,
+          "positive_labels": 789,
+          "prevalence": 0.018723747597237713
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/high180_30.json",
+            "rows": 33382,
+            "positive_labels": 672,
+            "prevalence": 0.020130609310406805,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/high180_30.json",
+            "rows": 33842,
+            "positive_labels": 628,
+            "prevalence": 0.018556822882808344,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/high180_30.json",
+            "rows": 33063,
+            "positive_labels": 611,
+            "prevalence": 0.018479871759973385,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/high180_30.json",
+            "rows": 34088,
+            "positive_labels": 599,
+            "prevalence": 0.01757216615817883,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/high180_30.json",
+            "rows": 34181,
+            "positive_labels": 646,
+            "prevalence": 0.018899388549193995,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 42139,
+          "events": 789,
+          "prevalence": 0.018723747597237713,
+          "auroc": 0.976382729274808,
+          "auroc_fold_sd": 0.0040401970048769015,
+          "average_precision": 0.5731228016117995,
+          "brier_skill": 0.37693707076383076
+        }
+      },
+      "60": {
+        "final": {
+          "file": "models/final/high180_60.json",
+          "rows": 42040,
+          "positive_labels": 1534,
+          "prevalence": 0.03648905803996194
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/high180_60.json",
+            "rows": 33309,
+            "positive_labels": 1303,
+            "prevalence": 0.039118556546278785,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/high180_60.json",
+            "rows": 33760,
+            "positive_labels": 1218,
+            "prevalence": 0.0360781990521327,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/high180_60.json",
+            "rows": 32984,
+            "positive_labels": 1187,
+            "prevalence": 0.03598714528256124,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/high180_60.json",
+            "rows": 34009,
+            "positive_labels": 1170,
+            "prevalence": 0.03440265811990944,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/high180_60.json",
+            "rows": 34098,
+            "positive_labels": 1258,
+            "prevalence": 0.036893659452167285,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 42040,
+          "events": 1534,
+          "prevalence": 0.03648905803996194,
+          "auroc": 0.9286341663227448,
+          "auroc_fold_sd": 0.01148976128178104,
+          "average_precision": 0.4575588821526293,
+          "brier_skill": 0.26421615205255866
+        }
+      },
+      "90": {
+        "final": {
+          "file": "models/final/high180_90.json",
+          "rows": 41943,
+          "positive_labels": 2241,
+          "prevalence": 0.053429654531149416
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/high180_90.json",
+            "rows": 33237,
+            "positive_labels": 1899,
+            "prevalence": 0.05713512049823991,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/high180_90.json",
+            "rows": 33679,
+            "positive_labels": 1779,
+            "prevalence": 0.05282223343923513,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/high180_90.json",
+            "rows": 32907,
+            "positive_labels": 1732,
+            "prevalence": 0.052633178351110706,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/high180_90.json",
+            "rows": 33932,
+            "positive_labels": 1718,
+            "prevalence": 0.05063067311092774,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/high180_90.json",
+            "rows": 34017,
+            "positive_labels": 1836,
+            "prevalence": 0.053973013493253376,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 41943,
+          "events": 2241,
+          "prevalence": 0.053429654531149416,
+          "auroc": 0.901944778650028,
+          "auroc_fold_sd": 0.01877151774840988,
+          "average_precision": 0.42422770628892614,
+          "brier_skill": 0.22752349723246834
+        }
+      },
+      "120": {
+        "final": {
+          "file": "models/final/high180_120.json",
+          "rows": 41847,
+          "positive_labels": 2924,
+          "prevalence": 0.06987358711496643
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/high180_120.json",
+            "rows": 33165,
+            "positive_labels": 2474,
+            "prevalence": 0.07459671340268355,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/high180_120.json",
+            "rows": 33599,
+            "positive_labels": 2320,
+            "prevalence": 0.06904967409744338,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/high180_120.json",
+            "rows": 32831,
+            "positive_labels": 2259,
+            "prevalence": 0.06880692028875149,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/high180_120.json",
+            "rows": 33856,
+            "positive_labels": 2247,
+            "prevalence": 0.06636932892249528,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/high180_120.json",
+            "rows": 33937,
+            "positive_labels": 2396,
+            "prevalence": 0.07060140849220614,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 41847,
+          "events": 2924,
+          "prevalence": 0.06987358711496643,
+          "auroc": 0.8899050197779032,
+          "auroc_fold_sd": 0.02494846774724637,
+          "average_precision": 0.43388499015667453,
+          "brier_skill": 0.22723505053791404
+        }
+      },
+      "180": {
+        "final": {
+          "file": "models/final/high180_180.json",
+          "rows": 41658,
+          "positive_labels": 4232,
+          "prevalence": 0.10158913053915214
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/high180_180.json",
+            "rows": 33022,
+            "positive_labels": 3570,
+            "prevalence": 0.10810974501847254,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/high180_180.json",
+            "rows": 33442,
+            "positive_labels": 3352,
+            "prevalence": 0.10023323963877759,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/high180_180.json",
+            "rows": 32682,
+            "positive_labels": 3273,
+            "prevalence": 0.10014686983660731,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/high180_180.json",
+            "rows": 33707,
+            "positive_labels": 3262,
+            "prevalence": 0.09677515056219776,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/high180_180.json",
+            "rows": 33779,
+            "positive_labels": 3471,
+            "prevalence": 0.10275615027087835,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 41658,
+          "events": 4232,
+          "prevalence": 0.10158913053915214,
+          "auroc": 0.8815071129145383,
+          "auroc_fold_sd": 0.02973918196699625,
+          "average_precision": 0.4864613177958063,
+          "brier_skill": 0.2525331374634098
+        }
+      },
+      "240": {
+        "final": {
+          "file": "models/final/high180_240.json",
+          "rows": 41478,
+          "positive_labels": 5438,
+          "prevalence": 0.13110564636674865
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/high180_240.json",
+            "rows": 32882,
+            "positive_labels": 4570,
+            "prevalence": 0.13898181375828722,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/high180_240.json",
+            "rows": 33294,
+            "positive_labels": 4313,
+            "prevalence": 0.12954286057547906,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/high180_240.json",
+            "rows": 32542,
+            "positive_labels": 4204,
+            "prevalence": 0.12918689693319402,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/high180_240.json",
+            "rows": 33567,
+            "positive_labels": 4211,
+            "prevalence": 0.12545059135460424,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/high180_240.json",
+            "rows": 33627,
+            "positive_labels": 4454,
+            "prevalence": 0.1324530882921462,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 41478,
+          "events": 5438,
+          "prevalence": 0.13110564636674865,
+          "auroc": 0.8765850125050054,
+          "auroc_fold_sd": 0.032331374508129083,
+          "average_precision": 0.5245730681825859,
+          "brier_skill": 0.2698280242551395
+        }
+      },
+      "300": {
+        "final": {
+          "file": "models/final/high180_300.json",
+          "rows": 41302,
+          "positive_labels": 6522,
+          "prevalence": 0.15791002857004505
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/high180_300.json",
+            "rows": 32746,
+            "positive_labels": 5463,
+            "prevalence": 0.16682953643193063,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/high180_300.json",
+            "rows": 33146,
+            "positive_labels": 5178,
+            "prevalence": 0.15621794485005733,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/high180_300.json",
+            "rows": 32406,
+            "positive_labels": 5048,
+            "prevalence": 0.1557736221687342,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/high180_300.json",
+            "rows": 33431,
+            "positive_labels": 5071,
+            "prevalence": 0.15168556130537525,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/high180_300.json",
+            "rows": 33479,
+            "positive_labels": 5328,
+            "prevalence": 0.15914453836733475,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 41302,
+          "events": 6522,
+          "prevalence": 0.15791002857004505,
+          "auroc": 0.8728657078558721,
+          "auroc_fold_sd": 0.03472309066865953,
+          "average_precision": 0.5646923745220159,
+          "brier_skill": 0.2898168632957747
+        }
+      },
+      "360": {
+        "final": {
+          "file": "models/final/high180_360.json",
+          "rows": 41126,
+          "positive_labels": 7521,
+          "prevalence": 0.18287701210912805
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/high180_360.json",
+            "rows": 32610,
+            "positive_labels": 6285,
+            "prevalence": 0.19273229070837167,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/high180_360.json",
+            "rows": 32998,
+            "positive_labels": 5978,
+            "prevalence": 0.18116249469664827,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/high180_360.json",
+            "rows": 32270,
+            "positive_labels": 5821,
+            "prevalence": 0.1803842578246049,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/high180_360.json",
+            "rows": 33295,
+            "positive_labels": 5872,
+            "prevalence": 0.1763628172398258,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/high180_360.json",
+            "rows": 33331,
+            "positive_labels": 6128,
+            "prevalence": 0.18385286970087905,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 41126,
+          "events": 7521,
+          "prevalence": 0.18287701210912805,
+          "auroc": 0.8669338924462876,
+          "auroc_fold_sd": 0.03894989668958066,
+          "average_precision": 0.5883299161956277,
+          "brier_skill": 0.29548790810673997
+        }
+      }
+    },
+    "high140": {
+      "30": {
+        "final": {
+          "file": "models/final/high140_30.json",
+          "rows": 37303,
+          "positive_labels": 1689,
+          "prevalence": 0.045277859689569204
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/high140_30.json",
+            "rows": 29253,
+            "positive_labels": 1384,
+            "prevalence": 0.04731138686630431,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/high140_30.json",
+            "rows": 30000,
+            "positive_labels": 1384,
+            "prevalence": 0.04613333333333333,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/high140_30.json",
+            "rows": 29506,
+            "positive_labels": 1209,
+            "prevalence": 0.0409747170067105,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/high140_30.json",
+            "rows": 30306,
+            "positive_labels": 1417,
+            "prevalence": 0.04675641787104864,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/high140_30.json",
+            "rows": 30147,
+            "positive_labels": 1362,
+            "prevalence": 0.045178624738779975,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 37303,
+          "events": 1689,
+          "prevalence": 0.045277859689569204,
+          "auroc": 0.9471576577794212,
+          "auroc_fold_sd": 0.007910484753717674,
+          "average_precision": 0.5581369476629003,
+          "brier_skill": 0.3504096349963529
+        }
+      },
+      "60": {
+        "final": {
+          "file": "models/final/high140_60.json",
+          "rows": 37212,
+          "positive_labels": 3232,
+          "prevalence": 0.08685370310652478
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/high140_60.json",
+            "rows": 29188,
+            "positive_labels": 2644,
+            "prevalence": 0.09058517198848842,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/high140_60.json",
+            "rows": 29926,
+            "positive_labels": 2640,
+            "prevalence": 0.0882176034217737,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/high140_60.json",
+            "rows": 29429,
+            "positive_labels": 2318,
+            "prevalence": 0.0787658432158755,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/high140_60.json",
+            "rows": 30235,
+            "positive_labels": 2718,
+            "prevalence": 0.08989581610716058,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/high140_60.json",
+            "rows": 30070,
+            "positive_labels": 2608,
+            "prevalence": 0.08673096109078816,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 37212,
+          "events": 3232,
+          "prevalence": 0.08685370310652478,
+          "auroc": 0.8929186650271855,
+          "auroc_fold_sd": 0.018002883184640935,
+          "average_precision": 0.5209625431343826,
+          "brier_skill": 0.28859908900883746
+        }
+      },
+      "90": {
+        "final": {
+          "file": "models/final/high140_90.json",
+          "rows": 37125,
+          "positive_labels": 4674,
+          "prevalence": 0.1258989898989899
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/high140_90.json",
+            "rows": 29125,
+            "positive_labels": 3819,
+            "prevalence": 0.1311244635193133,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/high140_90.json",
+            "rows": 29854,
+            "positive_labels": 3809,
+            "prevalence": 0.12758759295236818,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/high140_90.json",
+            "rows": 29356,
+            "positive_labels": 3366,
+            "prevalence": 0.11466139801062815,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/high140_90.json",
+            "rows": 30168,
+            "positive_labels": 3934,
+            "prevalence": 0.1304030761071334,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/high140_90.json",
+            "rows": 29997,
+            "positive_labels": 3768,
+            "prevalence": 0.1256125612561256,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 37125,
+          "events": 4674,
+          "prevalence": 0.1258989898989899,
+          "auroc": 0.875204598982829,
+          "auroc_fold_sd": 0.01990015489127732,
+          "average_precision": 0.5437732322363358,
+          "brier_skill": 0.28470396471616743
+        }
+      },
+      "120": {
+        "final": {
+          "file": "models/final/high140_120.json",
+          "rows": 37039,
+          "positive_labels": 6023,
+          "prevalence": 0.1626123815437782
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/high140_120.json",
+            "rows": 29063,
+            "positive_labels": 4913,
+            "prevalence": 0.16904655403778,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/high140_120.json",
+            "rows": 29782,
+            "positive_labels": 4909,
+            "prevalence": 0.1648311060372037,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/high140_120.json",
+            "rows": 29284,
+            "positive_labels": 4351,
+            "prevalence": 0.14857942903974866,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/high140_120.json",
+            "rows": 30102,
+            "positive_labels": 5068,
+            "prevalence": 0.16836090625207628,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/high140_120.json",
+            "rows": 29925,
+            "positive_labels": 4851,
+            "prevalence": 0.16210526315789472,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 37039,
+          "events": 6023,
+          "prevalence": 0.1626123815437782,
+          "auroc": 0.869215761171035,
+          "auroc_fold_sd": 0.02053621432469367,
+          "average_precision": 0.5898476024941757,
+          "brier_skill": 0.30429254265778805
+        }
+      },
+      "180": {
+        "final": {
+          "file": "models/final/high140_180.json",
+          "rows": 36887,
+          "positive_labels": 8478,
+          "prevalence": 0.22983706997045028
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/high140_180.json",
+            "rows": 28954,
+            "positive_labels": 6874,
+            "prevalence": 0.23741106582855565,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/high140_180.json",
+            "rows": 29658,
+            "positive_labels": 6909,
+            "prevalence": 0.23295569492211207,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/high140_180.json",
+            "rows": 29156,
+            "positive_labels": 6161,
+            "prevalence": 0.21131156537247908,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/high140_180.json",
+            "rows": 29987,
+            "positive_labels": 7154,
+            "prevalence": 0.2385700470203755,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/high140_180.json",
+            "rows": 29793,
+            "positive_labels": 6814,
+            "prevalence": 0.2287114422851005,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 36887,
+          "events": 8478,
+          "prevalence": 0.22983706997045028,
+          "auroc": 0.8644818893427536,
+          "auroc_fold_sd": 0.02106226215860552,
+          "average_precision": 0.6676719593340966,
+          "brier_skill": 0.33729857762402415
+        }
+      },
+      "240": {
+        "final": {
+          "file": "models/final/high140_240.json",
+          "rows": 36743,
+          "positive_labels": 10571,
+          "prevalence": 0.28770105870505946
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/high140_240.json",
+            "rows": 28850,
+            "positive_labels": 8528,
+            "prevalence": 0.29559792027729637,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/high140_240.json",
+            "rows": 29538,
+            "positive_labels": 8619,
+            "prevalence": 0.29179362177534024,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/high140_240.json",
+            "rows": 29036,
+            "positive_labels": 7707,
+            "prevalence": 0.2654291224686596,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/high140_240.json",
+            "rows": 29879,
+            "positive_labels": 8935,
+            "prevalence": 0.2990394591519127,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/high140_240.json",
+            "rows": 29669,
+            "positive_labels": 8495,
+            "prevalence": 0.2863257946004247,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 36743,
+          "events": 10571,
+          "prevalence": 0.28770105870505946,
+          "auroc": 0.8654590623379941,
+          "auroc_fold_sd": 0.021327988185207786,
+          "average_precision": 0.727809601692968,
+          "brier_skill": 0.3671998091717479
+        }
+      },
+      "300": {
+        "final": {
+          "file": "models/final/high140_300.json",
+          "rows": 36603,
+          "positive_labels": 12343,
+          "prevalence": 0.3372127967652925
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/high140_300.json",
+            "rows": 28750,
+            "positive_labels": 9918,
+            "prevalence": 0.34497391304347824,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/high140_300.json",
+            "rows": 29418,
+            "positive_labels": 10065,
+            "prevalence": 0.3421374668570263,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/high140_300.json",
+            "rows": 28920,
+            "positive_labels": 9036,
+            "prevalence": 0.312448132780083,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/high140_300.json",
+            "rows": 29775,
+            "positive_labels": 10432,
+            "prevalence": 0.3503610411418976,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/high140_300.json",
+            "rows": 29549,
+            "positive_labels": 9921,
+            "prevalence": 0.33574740261937797,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 36603,
+          "events": 12343,
+          "prevalence": 0.3372127967652925,
+          "auroc": 0.8677273145931363,
+          "auroc_fold_sd": 0.02219585888254749,
+          "average_precision": 0.7710268329594883,
+          "brier_skill": 0.3901591674245447
+        }
+      },
+      "360": {
+        "final": {
+          "file": "models/final/high140_360.json",
+          "rows": 36463,
+          "positive_labels": 13922,
+          "prevalence": 0.38181169953103145
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/high140_360.json",
+            "rows": 28650,
+            "positive_labels": 11159,
+            "prevalence": 0.3894938917975567,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/high140_360.json",
+            "rows": 29298,
+            "positive_labels": 11358,
+            "prevalence": 0.3876715134138849,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/high140_360.json",
+            "rows": 28804,
+            "positive_labels": 10224,
+            "prevalence": 0.3549507012914873,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/high140_360.json",
+            "rows": 29671,
+            "positive_labels": 11766,
+            "prevalence": 0.39654881871187353,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/high140_360.json",
+            "rows": 29429,
+            "positive_labels": 11181,
+            "prevalence": 0.37993136022290935,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 36463,
+          "events": 13922,
+          "prevalence": 0.38181169953103145,
+          "auroc": 0.8672961599301491,
+          "auroc_fold_sd": 0.02362636058964346,
+          "average_precision": 0.8031459758259774,
+          "brier_skill": 0.3994854826655486
+        }
+      }
+    },
+    "low70": {
+      "30": {
+        "final": {
+          "file": "models/final/low70_30.json",
+          "rows": 40790,
+          "positive_labels": 1203,
+          "prevalence": 0.029492522677126747
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/low70_30.json",
+            "rows": 32868,
+            "positive_labels": 967,
+            "prevalence": 0.029420713155652915,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/low70_30.json",
+            "rows": 32783,
+            "positive_labels": 951,
+            "prevalence": 0.029008937559100754,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/low70_30.json",
+            "rows": 32046,
+            "positive_labels": 957,
+            "prevalence": 0.029863321475379144,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/low70_30.json",
+            "rows": 32671,
+            "positive_labels": 916,
+            "prevalence": 0.028037097119769826,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/low70_30.json",
+            "rows": 32792,
+            "positive_labels": 1021,
+            "prevalence": 0.031135642839717006,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 40790,
+          "events": 1203,
+          "prevalence": 0.029492522677126747,
+          "auroc": 0.954273194927149,
+          "auroc_fold_sd": 0.004862197062166337,
+          "average_precision": 0.434405880684801,
+          "brier_skill": 0.27075180258891307
+        }
+      },
+      "60": {
+        "final": {
+          "file": "models/final/low70_60.json",
+          "rows": 40694,
+          "positive_labels": 2126,
+          "prevalence": 0.052243573991251784
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/low70_60.json",
+            "rows": 32793,
+            "positive_labels": 1718,
+            "prevalence": 0.05238922940871527,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/low70_60.json",
+            "rows": 32706,
+            "positive_labels": 1701,
+            "prevalence": 0.052008805723720415,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/low70_60.json",
+            "rows": 31968,
+            "positive_labels": 1688,
+            "prevalence": 0.052802802802802806,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/low70_60.json",
+            "rows": 32595,
+            "positive_labels": 1605,
+            "prevalence": 0.04924068108605614,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/low70_60.json",
+            "rows": 32714,
+            "positive_labels": 1792,
+            "prevalence": 0.05477777098489943,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 40694,
+          "events": 2126,
+          "prevalence": 0.052243573991251784,
+          "auroc": 0.928981637153852,
+          "auroc_fold_sd": 0.011193055955153507,
+          "average_precision": 0.44729235676425944,
+          "brier_skill": 0.2702272302054942
+        }
+      },
+      "90": {
+        "final": {
+          "file": "models/final/low70_90.json",
+          "rows": 40601,
+          "positive_labels": 2888,
+          "prevalence": 0.07113125292480481
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/low70_90.json",
+            "rows": 32720,
+            "positive_labels": 2346,
+            "prevalence": 0.07169926650366748,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/low70_90.json",
+            "rows": 32630,
+            "positive_labels": 2329,
+            "prevalence": 0.0713760343242415,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/low70_90.json",
+            "rows": 31893,
+            "positive_labels": 2287,
+            "prevalence": 0.07170852538174521,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/low70_90.json",
+            "rows": 32522,
+            "positive_labels": 2163,
+            "prevalence": 0.06650882479552303,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/low70_90.json",
+            "rows": 32639,
+            "positive_labels": 2427,
+            "prevalence": 0.07435889579950367,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 40601,
+          "events": 2888,
+          "prevalence": 0.07113125292480481,
+          "auroc": 0.915273003724808,
+          "auroc_fold_sd": 0.01704340386020142,
+          "average_precision": 0.4850882669823192,
+          "brier_skill": 0.284438813176387
+        }
+      },
+      "120": {
+        "final": {
+          "file": "models/final/low70_120.json",
+          "rows": 40512,
+          "positive_labels": 3579,
+          "prevalence": 0.0883441943127962
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/low70_120.json",
+            "rows": 32651,
+            "positive_labels": 2917,
+            "prevalence": 0.08933876450950966,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/low70_120.json",
+            "rows": 32556,
+            "positive_labels": 2895,
+            "prevalence": 0.08892370070033173,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/low70_120.json",
+            "rows": 31820,
+            "positive_labels": 2832,
+            "prevalence": 0.08900062853551226,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/low70_120.json",
+            "rows": 32453,
+            "positive_labels": 2670,
+            "prevalence": 0.08227282531661172,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/low70_120.json",
+            "rows": 32568,
+            "positive_labels": 3002,
+            "prevalence": 0.09217636944239745,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 40512,
+          "events": 3579,
+          "prevalence": 0.0883441943127962,
+          "auroc": 0.9069062229667343,
+          "auroc_fold_sd": 0.020551092873026432,
+          "average_precision": 0.5242126013830443,
+          "brier_skill": 0.30186204179382026
+        }
+      },
+      "180": {
+        "final": {
+          "file": "models/final/low70_180.json",
+          "rows": 40340,
+          "positive_labels": 4791,
+          "prevalence": 0.11876549330689143
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/low70_180.json",
+            "rows": 32519,
+            "positive_labels": 3913,
+            "prevalence": 0.12032965343337741,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/low70_180.json",
+            "rows": 32412,
+            "positive_labels": 3893,
+            "prevalence": 0.12010983586326052,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/low70_180.json",
+            "rows": 31680,
+            "positive_labels": 3790,
+            "prevalence": 0.11963383838383838,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/low70_180.json",
+            "rows": 32317,
+            "positive_labels": 3565,
+            "prevalence": 0.11031345731348825,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/low70_180.json",
+            "rows": 32432,
+            "positive_labels": 4003,
+            "prevalence": 0.12342747903305377,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 40340,
+          "events": 4791,
+          "prevalence": 0.11876549330689143,
+          "auroc": 0.8971140982734848,
+          "auroc_fold_sd": 0.023096853376981277,
+          "average_precision": 0.5777413120931776,
+          "brier_skill": 0.32244892049533724
+        }
+      },
+      "240": {
+        "final": {
+          "file": "models/final/low70_240.json",
+          "rows": 40172,
+          "positive_labels": 5792,
+          "prevalence": 0.14418002588867868
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/low70_240.json",
+            "rows": 32391,
+            "positive_labels": 4723,
+            "prevalence": 0.14581210830168875,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/low70_240.json",
+            "rows": 32272,
+            "positive_labels": 4733,
+            "prevalence": 0.14665964303420922,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/low70_240.json",
+            "rows": 31544,
+            "positive_labels": 4594,
+            "prevalence": 0.14563783920872433,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/low70_240.json",
+            "rows": 32181,
+            "positive_labels": 4293,
+            "prevalence": 0.13340169665330476,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/low70_240.json",
+            "rows": 32300,
+            "positive_labels": 4825,
+            "prevalence": 0.14938080495356038,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 40172,
+          "events": 5792,
+          "prevalence": 0.14418002588867868,
+          "auroc": 0.8898466375759708,
+          "auroc_fold_sd": 0.023974741263549218,
+          "average_precision": 0.6050797582034344,
+          "brier_skill": 0.33241726802649285
+        }
+      },
+      "300": {
+        "final": {
+          "file": "models/final/low70_300.json",
+          "rows": 40010,
+          "positive_labels": 6651,
+          "prevalence": 0.1662334416395901
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/low70_300.json",
+            "rows": 32269,
+            "positive_labels": 5408,
+            "prevalence": 0.16759118658774674,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/low70_300.json",
+            "rows": 32138,
+            "positive_labels": 5468,
+            "prevalence": 0.17014126579127511,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/low70_300.json",
+            "rows": 31414,
+            "positive_labels": 5299,
+            "prevalence": 0.1686827529127141,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/low70_300.json",
+            "rows": 32047,
+            "positive_labels": 4913,
+            "prevalence": 0.1533060816925141,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/low70_300.json",
+            "rows": 32172,
+            "positive_labels": 5516,
+            "prevalence": 0.17145343777197564,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 40010,
+          "events": 6651,
+          "prevalence": 0.1662334416395901,
+          "auroc": 0.8817827638527986,
+          "auroc_fold_sd": 0.024817426077898965,
+          "average_precision": 0.6248706752771579,
+          "brier_skill": 0.3408444046162714
+        }
+      },
+      "360": {
+        "final": {
+          "file": "models/final/low70_360.json",
+          "rows": 39850,
+          "positive_labels": 7378,
+          "prevalence": 0.18514429109159347
+        },
+        "fold_models": {
+          "0": {
+            "file": "models/fold0/low70_360.json",
+            "rows": 32149,
+            "positive_labels": 6000,
+            "prevalence": 0.18663099940900182,
+            "held_out_subjects": [
+              3,
+              6,
+              9,
+              14,
+              15,
+              26,
+              29,
+              34,
+              46
+            ]
+          },
+          "1": {
+            "file": "models/fold1/low70_360.json",
+            "rows": 32006,
+            "positive_labels": 6085,
+            "prevalence": 0.19012060238705242,
+            "held_out_subjects": [
+              4,
+              5,
+              11,
+              12,
+              13,
+              22,
+              27,
+              30,
+              32
+            ]
+          },
+          "2": {
+            "file": "models/fold2/low70_360.json",
+            "rows": 31286,
+            "positive_labels": 5901,
+            "prevalence": 0.18861471584734385,
+            "held_out_subjects": [
+              2,
+              10,
+              21,
+              23,
+              39,
+              42,
+              44,
+              47,
+              48
+            ]
+          },
+          "3": {
+            "file": "models/fold3/low70_360.json",
+            "rows": 31915,
+            "positive_labels": 5433,
+            "prevalence": 0.17023343255522483,
+            "held_out_subjects": [
+              8,
+              17,
+              18,
+              19,
+              35,
+              36,
+              41,
+              43,
+              49
+            ]
+          },
+          "4": {
+            "file": "models/fold4/low70_360.json",
+            "rows": 32044,
+            "positive_labels": 6093,
+            "prevalence": 0.1901448008987642,
+            "held_out_subjects": [
+              1,
+              16,
+              20,
+              28,
+              31,
+              33,
+              38,
+              45
+            ]
+          }
+        },
+        "oof_metrics": {
+          "n": 39850,
+          "events": 7378,
+          "prevalence": 0.18514429109159347,
+          "auroc": 0.8771611838355253,
+          "auroc_fold_sd": 0.028190728734756684,
+          "average_precision": 0.6481821178074184,
+          "brier_skill": 0.35241823975078623
+        }
+      }
+    }
+  },
+  "metrics_file": "data/processed/train_oof_metrics.csv",
+  "note": "Fold models produce participant-held-out predictions. Final models are trained on all eligible rows for deployment. Alert thresholds are exploratory."
+}
