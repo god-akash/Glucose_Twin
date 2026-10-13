@@ -1,34 +1,43 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { getPrimaryRisk, formatTaskTitle } from "@/lib/api/dashboard";
 import styles from "../dashboard.module.css";
 
-export default function PredictedEventCard({ className }) {
+export default function PredictedEventCard({ className, tasks, modelFolder }) {
+  const primary = getPrimaryRisk(tasks);
+  const riskPercent = primary?.risk.probability == null
+    ? null
+    : Math.round(primary.risk.probability * 100);
+
   return (
     <Card className={cn(styles.panel, styles.predictionPanel, className)}>
       <div className={styles.panelHeading}>
-        <p className={styles.eyebrow}>Predicted event</p>
-        <Badge className={cn(styles.tag, styles.warningTag)}>Above threshold</Badge>
+        <p className={styles.eyebrow}>Highest current model risk</p>
+        {primary && <Badge className={cn(styles.tag, styles.warningTag)}>{primary.risk.inEvent ? "In event" : primary.task.level || primary.task.status}</Badge>}
       </div>
-      <h2 className={styles.eventTitle}>Post-meal glucose spike</h2>
-      <div className={styles.riskRow}>
-        <strong className={styles.riskValue}>78%</strong>
-        <span>chance of exceeding 180<br />mg/dL</span>
-      </div>
-      <div className={styles.predictionStats}>
-        <div className={styles.detailTile}><span>Time horizon</span><strong>~45 min</strong><small>window 30–65 min</small></div>
-        <div className={styles.detailTile}><span>Expected peak</span><strong>214 <small>mg/dL</small></strong><small>80% range 190–238</small></div>
-      </div>
-      <div className={styles.confidence}>
-        <div className={styles.confidenceHeading}><span>Confidence</span><strong>Medium</strong></div>
-        <div className={styles.confidenceTrack}><span /></div>
-      </div>
-      <div className={styles.contextTags}>
-        <Badge className={styles.tag}>Lunch ~62 g carbs · 13:05</Badge>
-        <Badge className={styles.tag}>Sleep 6 h 12 m</Badge>
-        <Badge className={styles.tag}>Low insulin on board</Badge>
-      </div>
-      <p className={styles.modelFootnote}>Alert threshold ≥ 60% · Model v0.3 · updated 14:20:12</p>
+      {primary ? (
+        <>
+          <h2 className={styles.eventTitle}>{formatTaskTitle(primary.name, primary.task)}</h2>
+          <div className={styles.riskRow}>
+            <strong className={styles.riskValue}>{riskPercent == null ? "—" : `${riskPercent}%`}</strong>
+            <span>{primary.risk.inEvent ? "Model reports the threshold event is in progress." : `Model probability within ${primary.risk.horizon} minutes.`}</span>
+          </div>
+          <div className={styles.predictionStats}>
+            <div className={styles.detailTile}>
+              <span>Event threshold</span>
+              <strong>{primary.task.threshold ?? "Not provided"}{primary.task.threshold != null ? " mg/dL" : ""}</strong>
+            </div>
+            <div className={styles.detailTile}>
+              <span>Risk classification</span>
+              <strong>{primary.risk.inEvent ? "In event" : primary.task.level || "Unavailable"}</strong>
+            </div>
+          </div>
+          <p className={styles.modelFootnote}>Model {modelFolder || "not specified"} · estimate from the latest server response.</p>
+        </>
+      ) : (
+        <p className={styles.noData}>The backend has not returned a usable prediction for this patient.</p>
+      )}
     </Card>
   );
 }

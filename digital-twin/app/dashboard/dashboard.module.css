@@ -13,13 +13,20 @@
 .brandGroup, .headerStatus { display: flex; align-items: center; gap: 12px; }
 .brand { color: #9be6dc; font: 700 20px/1 var(--font-display), sans-serif; letter-spacing: -.04em; text-decoration: none; }
 .headerDivider { width: 1px; height: 22px; background: #283133; margin: 0 8px; }
-.viewName, .syncStatus, .userName { font-size: 13px; color: #a7b5b2; white-space: nowrap; }
+.viewName, .syncStatus { font-size: 13px; color: #a7b5b2; white-space: nowrap; }
 .headerStatus { gap: 10px; }
-.sampleBadge { color: #ffbd45; background: rgba(255, 189, 69, .14); border-radius: 999px; padding: 5px 11px; font-size: 11px; font-weight: 650; }
+.patientBadge { color: #a5e4dc; background: rgba(109, 184, 172, .14); border-radius: 999px; padding: 5px 11px; font-size: 11px; font-weight: 650; }
 .syncStatus { display: flex; align-items: center; gap: 7px; }
 .liveDot { width: 8px; height: 8px; border-radius: 50%; background: #62dda2; box-shadow: 0 0 0 4px rgba(98, 221, 162, .13); }
-.userInitials { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: #11343a; color: #a5e4dc; font-size: 12px; font-weight: 700; margin-left: 6px; }
-.userName { color: #e0e8e6; font-weight: 600; }
+.offlineDot { background: #ff7979; box-shadow: 0 0 0 4px rgba(255, 121, 121, .13); }
+.patientPicker { display: flex; align-items: center; gap: 7px; color: #a7b5b2; font-size: 12px; }
+.patientSelect { max-width: 190px; border: 1px solid #34403f; border-radius: 8px; padding: 6px 9px; color: #e8efed; background: #151b1d; font: inherit; }
+.errorBanner { margin: 0 0 14px; padding: 12px 15px; border: 1px solid rgba(255, 120, 120, .4); border-radius: 12px; color: #ffc2b9; background: rgba(110, 30, 30, .2); font-size: 13px; }
+.emptyState, .loadingState { max-width: 680px; margin: 12vh auto; padding: 28px; border: 1px solid #293234; border-radius: 17px; color: #bdc9c5; background: rgba(21, 26, 29, .97); }
+.emptyState h1 { margin: 0 0 10px; color: #e8efed; font-size: 22px; }
+.emptyState p { margin: 0; font-size: 14px; line-height: 1.6; }
+.emptyState code { color: #9ce8de; }
+.loadingState { text-align: center; }
 
 .dashboardGrid {
   display: grid;
@@ -50,8 +57,8 @@
   box-shadow: none;
   padding: 17px 18px;
 }
-.profilePanel, .twinPanel, .predictionPanel { min-height: 425px; }
-.variablesPanel { min-height: 435px; }
+.profilePanel, .twinPanel, .predictionPanel { min-height: 365px; }
+.variablesPanel { min-height: 365px; }
 .labsPanel, .forecastPanel, .timelinePanel { min-height: 263px; }
 .predictionPanel { border-color: rgba(220, 163, 57, .45); background: linear-gradient(145deg, rgba(31, 35, 31, .98), rgba(14, 17, 19, .98)); }
 .eyebrow { margin: 0; color: #91a29e; font-size: 11px; line-height: 1.35; letter-spacing: .065em; text-transform: uppercase; font-weight: 500; }
@@ -69,6 +76,8 @@
 .detailTile > span, .detailTile > small { color: #aab7b4; font-size: 12px; }
 .detailTile strong { color: #edf2f0; font-size: 15px; line-height: 1.35; }
 .detailTile strong small { font-weight: 500; }
+.dataNote { margin: 12px 0 0; color: #83928e; font-size: 10px; line-height: 1.5; }
+.noData { margin: 18px 0; color: #aab7b4; font-size: 13px; line-height: 1.55; }
 .profileSection { margin-top: 14px; }
 .tagList { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
 .primaryTag { background: #173c3b; color: #a0e8df; }
@@ -86,6 +95,7 @@
 .figureGlow { fill: #ffbd46; filter: drop-shadow(0 0 5px #ffbd46); }
 .figureBase { fill: none; stroke: #8fdcd2; stroke-width: 1; }
 .stateList { display: flex; flex-direction: column; gap: 16px; }
+.stateItem { min-width: 0; }
 .stateLabel { display: flex; justify-content: space-between; gap: 6px; margin-bottom: 5px; color: #b5c0bd; font-size: 12px; white-space: nowrap; }
 .amber { color: #ffbd43 !important; }
 .purple { color: #bd9bff !important; }
@@ -162,6 +172,11 @@
 .forecastChart .peakPoint { fill: #ffbf43; stroke: #d99a29; stroke-width: 4; }
 .forecastChart .nowLabel { fill: #a3eee3; font-weight: 600; }
 .forecastChart .peakLabel { fill: #c1c9c6; font-size: 9px; }
+.historyChart { display: block; width: 100%; height: 198px; margin-top: 14px; overflow: visible; }
+.historyChart text { fill: #95a5a1; font: 10px var(--font-body), sans-serif; }
+.historyChart .gridLine { stroke: #283033; stroke-width: 1; }
+.historyChart .measuredLine { fill: none; stroke: #9ce8de; stroke-width: 2.5; }
+.historyChart .chartPoint { fill: #111719; stroke: #ffbf43; stroke-width: 1.7; }
 
 .alertList { list-style: none; margin: 11px 0 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
 .alertItem { display: grid; grid-template-columns: 10px 1fr; gap: 11px; align-items: start; }
@@ -181,6 +196,7 @@
 .explanationIcon { display: grid; place-items: center; width: 36px; height: 36px; flex: none; border: 1px solid rgba(144, 222, 211, .2); border-radius: 12px; background: rgba(67, 143, 134, .13); color: #9ce8de; }
 .explanationTitle { margin: 3px 0 0; color: #e8efed; font-size: 16px; line-height: 1.3; letter-spacing: -.02em; font-weight: 650; }
 .sampleExplanationTag { color: #a8c5bf; background: rgba(116, 157, 147, .14); }
+.explanationTag { color: #a8c5bf; font-size: 11px; }
 .explanationBody { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); align-items: center; gap: 24px; margin-top: 14px; }
 .explanationSummary p { max-width: 58rem; margin: 0; color: #c3ceca; font-size: 13px; line-height: 1.65; }
 .explanationDisclaimer { display: block; margin-top: 9px; color: #83928e; font-size: 10px; line-height: 1.45; }
@@ -191,7 +207,7 @@
 
 @media (max-width: 1100px) {
   .dashboardGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "profile twin" "prediction variables" "labs timeline" "forecast forecast" "explanation explanation"; }
-  .profilePanel, .twinPanel, .predictionPanel, .variablesPanel { min-height: 410px; }
+  .profilePanel, .twinPanel, .predictionPanel, .variablesPanel { min-height: 350px; }
   .forecastPanel { min-height: 250px; }
 }
 @media (max-width: 650px) {
@@ -206,6 +222,7 @@
   .bodyFigure { height: 245px; }
   .bodyFigure svg { height: 220px; }
   .forecastChart { height: 170px; }
+  .historyChart { height: 170px; }
   .chartLegend { gap: 9px; font-size: 10px; }
   .labChart { height: 65px; }
   .explanationHeader { align-items: flex-start; flex-direction: column; }
