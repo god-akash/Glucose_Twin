@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import Backdrop from "./Backdrop";
 import HeroScene from "./HeroScene";
 import { DEFAULT, REGIONS } from "./regions";
-import Link from 'next/Link'
+import Link from "next/link";
 
 export default function Twin() {
   const [active, setActive] = useState(null);
@@ -32,7 +32,7 @@ export default function Twin() {
         <div className="glow" aria-hidden="true" />
 
         <div className="copy">
-          <p className="brand">Digital Twin</p>
+          <p className="brand">Glucose Twin</p>
 
           <div className="story" key={t.id ?? "home"} aria-live="polite">
             <h1>{t.title}</h1>
@@ -40,7 +40,7 @@ export default function Twin() {
             {t.reading && <p className="reading">{t.reading}</p>}
           </div>
 
-          <div className="chips" role="group" aria-label="Body systems">
+          <div className="chips" role="group" aria-label="Explore glucose health context">
             {Object.values(REGIONS).map((r) => (
               <button
                 key={r.id}
@@ -58,7 +58,7 @@ export default function Twin() {
           </div>
 
           <div className="actions">
-            <Link className="btn" href={'/dashboard'}>Get Started</Link>
+            <Link className="btn" href="/dashboard">Open Glucose Dashboard</Link>
             
           </div>
         </div>
@@ -67,7 +67,7 @@ export default function Twin() {
           Anatomy: <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html">BodyParts3D</a>, © DBCLS, CC BY 4.0
         </p>
 
-        <div className="stage" role="img" aria-label="A transparent 3D body with a heart, lungs, brain, gut and joints. Hover an organ to explore it.">
+        <div className="stage" role="img" aria-label="Illustrative 3D anatomy. Select a highlighted area to explore its general context for glucose health.">
           <HeroScene active={active} setActive={hover} unhover={unhover} />
         </div>
       </main>
