@@ -82,7 +82,7 @@ function shape(color, { base, lit, side = THREE.FrontSide, depthWrite = true }) 
 
 const ORGANS = ["gut", "lungs", "heart", "brain"];
 
-export default function Human({ active, setActive, unhover }) {
+export default function Human({ active, setActive, unhover, showPlatform = true }) {
   const spin = useRef();
   const speed = useRef(0.6);
   const reduced = useRef(false);
@@ -197,21 +197,24 @@ export default function Human({ active, setActive, unhover }) {
       {/* slightly inflated, invisible copy of the limb bones so thin bones are easy to hover */}
       <primitive object={nodes.joints_hit} {...bind("joints")} />
 
-      {/* Platform */}
-      <mesh position={[0, -0.03, 0]} material={disc}>
-        <cylinderGeometry args={[1.1, 1.1, 0.06, 96]} />
-      </mesh>
-      <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, 0.002, 0]} material={ring}>
-        <torusGeometry args={[1.1, 0.012, 8, 128]} />
-      </mesh>
-      <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, 0.002, 0]} material={inner}>
-        <torusGeometry args={[0.7, 0.006, 8, 128]} />
-      </mesh>
-      {TICKS.map(({ a, long, r, len }, i) => (
-        <mesh key={i} material={long ? ring : inner} position={[Math.cos(a) * r, 0.003, Math.sin(a) * r]} rotation={[0, -a, 0]}>
-          <boxGeometry args={[len, 0.004, 0.012]} />
-        </mesh>
-      ))}
+      {showPlatform && (
+        <>
+          <mesh position={[0, -0.03, 0]} material={disc}>
+            <cylinderGeometry args={[1.1, 1.1, 0.06, 96]} />
+          </mesh>
+          <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, 0.002, 0]} material={ring}>
+            <torusGeometry args={[1.1, 0.012, 8, 128]} />
+          </mesh>
+          <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, 0.002, 0]} material={inner}>
+            <torusGeometry args={[0.7, 0.006, 8, 128]} />
+          </mesh>
+          {TICKS.map(({ a, long, r, len }, i) => (
+            <mesh key={i} material={long ? ring : inner} position={[Math.cos(a) * r, 0.003, Math.sin(a) * r]} rotation={[0, -a, 0]}>
+              <boxGeometry args={[len, 0.004, 0.012]} />
+            </mesh>
+          ))}
+        </>
+      )}
     </group>
   );
 }

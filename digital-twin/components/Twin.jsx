@@ -58,7 +58,7 @@ export default function Twin() {
           </div>
 
           <div className="actions">
-            <Link className="btn" href={'/dashboard'}>Create your twin</Link>
+            <Link className="btn" href={'/dashboard'}>Get Started</Link>
             
           </div>
         </div>
