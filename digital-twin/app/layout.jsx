@@ -5,8 +5,8 @@ const display = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-disp
 const body = Instrument_Sans({ subsets: ["latin"], variable: "--font-body" });
 
 export const metadata = {
-  title: "Digital Twin – your health, modelled",
-  description: "A 3D model of your body that your doctor can read.",
+  title: "Glucose Twin – glucose insights and risk",
+  description: "Explore glucose readings and model-based high- and low-glucose risk estimates.",
 };
 
 export default function RootLayout({ children }) {
