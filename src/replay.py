@@ -4,6 +4,7 @@ import time
 import pandas as pd
 import requests
 
+
 MACROS = ["calories", "carbs", "protein", "fat", "fiber"]
 ap = argparse.ArgumentParser()
 ap.add_argument("subject", type=int)
@@ -43,7 +44,7 @@ def build(chunk):
     return w, g, m
 
 
-# print(post("/reset", {"patient_id": pid, "mode": a.mode, "subject": a.subject}))
+
 cursor = stamps.iloc[0]
 end = stamps.iloc[-1]
 ff_end = cursor + pd.Timedelta(hours=a.ff_hours)
@@ -72,4 +73,4 @@ while cursor <= end:
         print(f"{late['timestamp']}  glucose {late['glucose']:.0f}  "
               + (f"high180 risk (2 h) {risk:.2f} [{t['level']}]" if risk is not None else f"high180: {t.get('status')}"))
     time.sleep(1)
-print("replay finished")
+print("replay finished") 

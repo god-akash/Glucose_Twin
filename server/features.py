@@ -103,6 +103,12 @@ class PatientState:
     def warm(self, t):
         return all(not np.isnan(self.glucose_at(t - STEP * k)) for k in range(5))
 
+    def recent_wearable(self, t):
+        hi = bisect.bisect_right(self.w_ts, t)
+        lo = bisect.bisect_right(self.w_ts, t - 15)
+        return (_mean(np.array(self.w_hr[lo:hi], dtype=float)),
+                _mean(np.array(self.w_act[lo:hi], dtype=float)))
+
     def features_at(self, t, extra=None):
         p = np.array([self.glucose_at(t - STEP * k) for k in range(PAST_STEPS + 1)], dtype=float)
         f = {"glucose": p[0]}
@@ -164,3 +170,5 @@ class PatientState:
         f["hour_sin"] = float(np.sin(2 * np.pi * hod / 24))
         f["hour_cos"] = float(np.cos(2 * np.pi * hod / 24))
         return f
+
+        

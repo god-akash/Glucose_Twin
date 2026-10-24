@@ -1,6 +1,7 @@
 # 1. Team Details and College/Incubator Information
 
-**Team Name:** StratX
+
+**Team Name:** harshitastroporwal
 
 **Team Leader:** Harshit porwal
 **College/Institution:** National institute of technology, Raipur
@@ -9,8 +10,8 @@
 **Team Members:** NIKHIL KUMAR TIWARI
 **College/Institution:** Vellore institute of technology,  Bhopal
 
-**Department/Branch:** Computer Engineering
-**Incubator/Innovation Centre:** [Enter the incubator name, if applicable; otherwise, write “Not Applicable”]
+**Department/Branch:** Computer science Engineering
+
 
 Youtube Video Link : https://youtu.be/l1jbjxoYlv0?si=6Vs0tP7LoPICSaRu
 

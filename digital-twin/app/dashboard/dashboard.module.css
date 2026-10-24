@@ -223,3 +223,37 @@
   .explanationBody { grid-template-columns: minmax(0, 1fr); gap: 13px; }
   .factorGrid { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* new one  */
+
+.forecastLegend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin-top: 8px;
+  color: var(--muted-foreground, #94a3b8);
+  font-size: 11px;
+}
+
+.forecastLegend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.forecastLegend i {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+}
+
+.forecastLegend .legendDash {
+  width: 15px;
+  height: 0;
+  flex-basis: 15px;
+  border-top: 2px dashed;
+  border-radius: 0;
+}
