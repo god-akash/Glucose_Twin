@@ -1,18 +1,18 @@
 # 1. Team Details and College/Incubator Information
 
-**Team Name:**
+**Team Name:** StratX
 
 **Team Leader:** Harshit porwal
 **College/Institution:** National institute of technology, Raipur
-**Team Members:** Yashvardhan khatiyal
+**Team Members:** Yashvardhan Shrotriya
 **College/Institution:** International Institute of Information Technology (IIIT), Bhubaneswar, Odisha, 
 **Team Members:** NIKHIL KUMAR TIWARI
 **College/Institution:** Vellore institute of technology,  Bhopal
-**Team Members:** Ashok Biswal
-**College/Institution:** International Institute of Information Technology (IIIT), Bhubaneswar, Odisha, 
 
 **Department/Branch:** Computer Engineering
 **Incubator/Innovation Centre:** [Enter the incubator name, if applicable; otherwise, write “Not Applicable”]
+
+Youtube Video Link : https://youtube.com
 
 
 # 2. Project Title
