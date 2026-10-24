@@ -12,7 +12,7 @@
 **Department/Branch:** Computer Engineering
 **Incubator/Innovation Centre:** [Enter the incubator name, if applicable; otherwise, write “Not Applicable”]
 
-Youtube Video Link : https://youtube.com
+Youtube Video Link : https://youtu.be/l1jbjxoYlv0?si=6Vs0tP7LoPICSaRu
 
 
 # 2. Project Title
