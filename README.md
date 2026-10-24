@@ -91,3 +91,4 @@ The complete Glucose Twin architecture, including system components, data flow, 
 
 📄 **[View / Download System Architecture (PDF)](docs/Glucose_Twin_Architecture.pdf)**
 
+📄 **[View / Download Project details PPT (PDF)](docs/GlucoseTwin_StratX_Digital_Twin_Challenge.pptx.pdf)**
