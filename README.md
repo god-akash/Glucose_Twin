@@ -13,7 +13,7 @@
 **Department/Branch:** Computer science Engineering
 
 
-Youtube Video Link : https://youtu.be/l1jbjxoYlv0?si=6Vs0tP7LoPICSaRu
+Youtube Video Link : https://youtu.be/gIIXUGWGJpI
 
 
 # 2. Project Title
