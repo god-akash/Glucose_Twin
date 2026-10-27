@@ -12,11 +12,12 @@
 
 **Department/Branch:** Computer science Engineering
 
+GLUCOSE TWIN DEMO VIDEO LINK: https://youtu.be/l1jbjxoYlv0
 
-PRESENTATION VIDEO LINK: https://youtu.be/gIIXUGWGJpI
+GLUCOSE TWIN PRESENTATION VIDEO LINK: https://youtu.be/gIIXUGWGJpI
 
 
-DEMO VIDEO LINK: https://youtu.be/l1jbjxoYlv0
+
 
 
 # 2. Project Title
